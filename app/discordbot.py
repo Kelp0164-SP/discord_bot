@@ -1,12 +1,15 @@
-# インストールした discord.py を読み込む
 import discord
 import discordbot_common
 import sqlite3
 import random
+import sys
+import os
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, parent_dir)
 import config
 
-# 自分のBotのアクセストークンに置き換えてください
 TOKEN = config.TOKEN
+
 # 接続に必要なオブジェクトを生成
 client = discord.Client(intents=discord.Intents.all())
 
