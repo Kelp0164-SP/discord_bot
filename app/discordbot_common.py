@@ -16,3 +16,18 @@ def random_db_data_get(dbName):
     result = random.choice(rows)
     conn.close()
     return result
+
+def random_quiz_data_get(category_code):
+    # データベースに接続
+    conn = sqlite3.connect('C:\discord_bot_pg\SQL\discordBot.db')
+    cursor = conn.cursor()
+    cursor.execute("""
+    SELECT *
+    FROM QUIZ
+    WHERE category = ?
+    """, (category_code,)) 
+    rows = cursor.fetchall()
+    # ランダムに1つのデータを選択
+    result = random.choice(rows)
+    conn.close()
+    return result
